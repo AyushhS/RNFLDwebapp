@@ -1,6 +1,5 @@
 streamlit
 streamlit-image-coordinates
-tkinter
 opencv-python
 tensorflow
 numpy
