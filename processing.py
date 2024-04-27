@@ -92,6 +92,7 @@ def processing(img, coordinates, coordinates2):
     pt = np.transpose(np.where(np.equal(img_point, 255)))
     pt = pt.astype(np.int32)
     patch_predict = []
+    print('Given to model')
     for j in range(0, len(pt)):
         patch = img[pt[j][0] - N // 2:pt[j][0] + N // 2, pt[j][1] - N // 2:pt[j][1] + N // 2]
         (p, q) = patch.shape
@@ -100,7 +101,7 @@ def processing(img, coordinates, coordinates2):
         else:
             padded_patch = np.lib.pad(patch, ((ceil((N - p) / 2), (N - p) // 2), (ceil((N - q) / 2), (N - q) // 2)), 'constant')
             patch_predict.append(padded_patch)
-
+    print('Predictions completed')
     patch_predict = np.array(patch_predict)
     p, q, s = patch_predict.shape
     patch_predict = patch_predict.reshape(p, q, s, 1)
