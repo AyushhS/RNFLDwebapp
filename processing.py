@@ -60,7 +60,7 @@ def extract_bv(imag = None):
             return (contrast_enhanced_green_fundus, blood_vessels)
 
 def processing(img, coordinates, coordinates2):
-    model = tf.keras.models.load_model('retinet_9010.h5')
+    model = tf.keras.models.load_model('./retinet_9010.h5')
     N = 32
 
     # img = cv2.resize(img, (0, 0), fx = 0.33, fy = 0.33)
