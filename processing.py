@@ -163,6 +163,7 @@ def processing(img, coordinates, coordinates2):
             q2 = ((param[j][0] * max_pt[0] - max_pt[1]) + param[j][1]) / (param[j][0] ** 2 + 1)
             p1 = (min_pt[0] - param[j][0] * q1, q1 + min_pt[1])
             p2 = (max_pt[0] - param[j][0] * q2, q2 + max_pt[1])
+            print('Clustering completed')
             cv2.line(img3, (int(p1[0]), int(p1[1])), (int(p2[0]), int(p2[1])), (255, 0, 0), 4)
         
         return img3
