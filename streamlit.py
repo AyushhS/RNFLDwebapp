@@ -35,8 +35,8 @@ def main():
                 ry = selected_point2['y']
                 cv2_image = cv2.circle(cv2_image, (cx, cy), int(3 * sqrt((cx - rx) * (cx - rx) + (cy - ry) * (cy - ry))), (0, 255, 0), 1)
                 output_image = processing(cv2_image2, selected_point, selected_point2)
-                output_image = cv2.circle(output_image, (cx, cy), int(3 * sqrt((cx - rx) * (cx - rx) + (cy - ry) * (cy - ry))), (0, 255, 0), 1)
-                output_image = cv2.circle(output_image, (cx, cy), 1, (0, 255, 0), -1)
+                # output_image = cv2.circle(output_image, (cx, cy), int(3 * sqrt((cx - rx) * (cx - rx) + (cy - ry) * (cy - ry))), (0, 255, 0), 1)
+                # output_image = cv2.circle(output_image, (cx, cy), 1, (0, 255, 0), -1)
                 st.image(output_image)
             # output_image = processing(cv2_image, selected_point)
             # st.image(output_image, title='Output')
