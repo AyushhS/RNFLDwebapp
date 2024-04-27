@@ -42,3 +42,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+'''pyinstaller streamlit.py --onefile --nowindow --add-data .\processing.py:. 
+--add-data .\retinet_9010.h5:. --add-data .\README.md:. --paths'''
