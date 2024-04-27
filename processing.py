@@ -78,8 +78,8 @@ def processing(img, coordinates, coordinates2):
     ry = coordinates['y']
     cx = coordinates2['x']
     cy = coordinates2['y']
-    x = cx
-    y = cy
+    x = rx
+    y = ry
     r = int(sqrt((cx - rx) * (cx - rx) + (cy - ry) * (cy - ry)))
     drawing = 2
     print('ROI generated!')
