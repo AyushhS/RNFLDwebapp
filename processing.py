@@ -60,7 +60,7 @@ def extract_bv(imag = None):
             return (contrast_enhanced_green_fundus, blood_vessels)
 
 def processing(img, coordinates, coordinates2):
-    model = tf.keras.models.load_model('retinet_9010.h5')
+    model = tf.keras.models.load_model('./retinet_9010.h5')
     N = 32
 
     # img = cv2.resize(img, (0, 0), fx = 0.33, fy = 0.33)
@@ -92,6 +92,7 @@ def processing(img, coordinates, coordinates2):
     pt = np.transpose(np.where(np.equal(img_point, 255)))
     pt = pt.astype(np.int32)
     patch_predict = []
+    print('Given to model')
     for j in range(0, len(pt)):
         patch = img[pt[j][0] - N // 2:pt[j][0] + N // 2, pt[j][1] - N // 2:pt[j][1] + N // 2]
         (p, q) = patch.shape
@@ -100,7 +101,7 @@ def processing(img, coordinates, coordinates2):
         else:
             padded_patch = np.lib.pad(patch, ((ceil((N - p) / 2), (N - p) // 2), (ceil((N - q) / 2), (N - q) // 2)), 'constant')
             patch_predict.append(padded_patch)
-
+    print('Predictions completed')
     patch_predict = np.array(patch_predict)
     p, q, s = patch_predict.shape
     patch_predict = patch_predict.reshape(p, q, s, 1)
@@ -163,6 +164,7 @@ def processing(img, coordinates, coordinates2):
             q2 = ((param[j][0] * max_pt[0] - max_pt[1]) + param[j][1]) / (param[j][0] ** 2 + 1)
             p1 = (min_pt[0] - param[j][0] * q1, q1 + min_pt[1])
             p2 = (max_pt[0] - param[j][0] * q2, q2 + max_pt[1])
+            print('Clustering completed')
             cv2.line(img3, (int(p1[0]), int(p1[1])), (int(p2[0]), int(p2[1])), (255, 0, 0), 4)
         
         return img3
