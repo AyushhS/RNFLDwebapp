@@ -9,6 +9,7 @@ import cv2
 def main():
     image = Image.open('iitbbs logo.png')
     st.image(image, width=256)
+    st.title('Image and Video Processing Lab')
     st.title("RNFLDapp")
 
     uploaded_image = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
